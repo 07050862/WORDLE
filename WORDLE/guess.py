@@ -77,7 +77,7 @@ inword = {'o','t','e','n'}
 anslist = []
 for key, value in dict_from_list.items():
     #print(key, 'corresponds to', value)
-    if (len(value & notinword) ==0) and (len(value & inword) == len(inword)) :
+    if (len(value & notinword) ==0) and (len(value & inword) >= len(inword)) :
         anslist.append(key)
 print("符合的單字有:\n")
 print(anslist)
