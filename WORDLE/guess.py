@@ -1,5 +1,5 @@
 """author --- 07050862"""
-WORDLIST_FILENAME = "words.txt"
+WORDLIST_FILENAME = "fiveletter.txt"
 
 def loadWords():
     print("Loading word list from file...")
@@ -46,12 +46,8 @@ def list_to_dict(wordlist):
     return dictlist # [{'g', 's', 'r', 'a'}, {'h', 's', 'e', 'p'},...]
 
 """ 匯入字母 """
-wordlist = loadWords()
-fiveword = []
-""" 找出只有5個字母的字 """
-for i in range(len(wordlist)):
-    if len(wordlist[i])==5:
-        fiveword.append(wordlist[i])#['grass', 'sheep',...]
+fiveword = loadWords()
+
 
 dictlist = list_to_dict(fiveword)
 
@@ -61,18 +57,17 @@ print("前5筆資料:\n{}\n{}".format(fiveword[0:5],dictlist[0:5]))
 
 print("篩選正確的字母:\n")
 
-wordlist2 = Compare_letter_locate(fiveword,0,'o')# 篩選第1個字母是o的
-wordlist2 = Compare_letter_locate(wordlist2,2,'t')# 篩選第3個字母是t的
-wordlist2 = Compare_letter_locate(wordlist2,3,'e')# 篩選第4個字母是e的
-wordlist2 = Compare_letter_locate(wordlist2,4,'n')# 篩選第5個字母是n的
+
+wordlist2 = Compare_letter_locate(fiveword,0,'a')# 篩選第1個字母是o的
+#wordlist2 = Compare_letter_locate(wordlist2,0,'a')# 篩選第1個字母是o的
 
 dictlist2 = list_to_dict(wordlist2)
 # print(wordlist2)
 # print(dictlist2)
 dict_from_list = {wordlist2[i]: dictlist2[i] for i in range(len(wordlist2))}
 print("dict_from_list:\n{}".format(dict_from_list))
-notinword = {'w','r','l','d','a'}
-inword = {'o','t','e','n'}
+notinword = {'o','r','l','d','i','n','g'}
+inword = {'w','a'}
 
 anslist = []
 for key, value in dict_from_list.items():
